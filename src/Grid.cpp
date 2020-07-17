@@ -2,11 +2,11 @@
 
 Grid::Grid()
 {
-	modif(25, 25);
-	modif(26, 24);
-	modif(25, 24);
-	modif(24, 25);
-	modif(25, 26);
+	modif(50, 50);
+	modif(51, 49);
+	modif(50, 49);
+	modif(49, 50);
+	modif(50, 51);
 }
 
 void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -17,8 +17,8 @@ void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
 		for(int j = 1; j < m_dim-1; j++)
 		{
-			rectangle.setSize(sf::Vector2f(600/m_dim, 600/m_dim));
-			rectangle.setPosition(i*600/m_dim, j*600/m_dim);
+			rectangle.setSize(sf::Vector2f(2500/m_dim, 2500/m_dim));
+			rectangle.setPosition(i*2500/m_dim, j*2500/m_dim);
 			rectangle.setOutlineColor(sf::Color::Blue);
 			rectangle.setOutlineThickness(1);
 				
@@ -43,7 +43,7 @@ void Grid::modif(int numRow, int numCol)
 
 bool Grid::verif(int numRow, int numCol) const
 {
-	if(numRow == 1 || numRow == m_dim-1 || numCol == 1 || numCol == m_dim-1)
+	if(numRow == 0 || numRow == m_dim-1 || numCol == 0 || numCol == m_dim-1)
 		return false;
 	
 	int compteur;

@@ -3,7 +3,7 @@
 const sf::Time Game::m_timePerFrame = sf::seconds(0.1);
 
 Game::Game()
-: m_window(sf::VideoMode(600, 600), "Game of Life")
+: m_window(sf::VideoMode(2500, 2500), "Game of Life")
 {
 }
 

@@ -18,7 +18,7 @@ private :
 	
 private :
 	
-	static constexpr int m_dim = 50;
+	static constexpr int m_dim = 100;
 	bool m_table[m_dim][m_dim]{};
 };
 
