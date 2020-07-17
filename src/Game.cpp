@@ -1,6 +1,6 @@
 #include "Game.h"
 
-const sf::Time Game::m_timePerFrame = sf::seconds(0.25);
+const sf::Time Game::m_timePerFrame = sf::seconds(0.1);
 
 Game::Game()
 : m_window(sf::VideoMode(600, 600), "Game of Life")
@@ -46,9 +46,7 @@ void Game::update()
 void Game::render()
 {
 	m_window.clear();
-
 	m_window.draw(m_grid);
-
 	m_window.display();
 }
 

@@ -18,8 +18,8 @@ private :
 	
 private :
 	
-	const int m_dim;
-	bool m_table[22][22]{};
+	static constexpr int m_dim = 50;
+	bool m_table[m_dim][m_dim]{};
 };
 
 #endif // GRID_H

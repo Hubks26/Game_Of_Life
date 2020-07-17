@@ -1,25 +1,24 @@
 #include "Grid.h"
 
 Grid::Grid()
-: m_dim(10)
 {
-	modif(3, 2);
-	modif(4, 3);
-	modif(4, 4);
-	modif(3, 4);
-	modif(2, 4);
+	modif(25, 25);
+	modif(26, 24);
+	modif(25, 24);
+	modif(24, 25);
+	modif(25, 26);
 }
 
 void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	sf::RectangleShape rectangle;
 	
-	for(int i = 1; i < 23; i++)
+	for(int i = 1; i < m_dim-1; i++)
 	{
-		for(int j = 1; j < 23; j++)
+		for(int j = 1; j < m_dim-1; j++)
 		{
-			rectangle.setSize(sf::Vector2f(25, 25));
-			rectangle.setPosition(i*25, j*25);
+			rectangle.setSize(sf::Vector2f(600/m_dim, 600/m_dim));
+			rectangle.setPosition(i*600/m_dim, j*600/m_dim);
 			rectangle.setOutlineColor(sf::Color::Blue);
 			rectangle.setOutlineThickness(1);
 				
@@ -44,7 +43,7 @@ void Grid::modif(int numRow, int numCol)
 
 bool Grid::verif(int numRow, int numCol) const
 {
-	if(numRow == 0 || numRow == 21 || numCol == 0 || numCol == 21)
+	if(numRow == 1 || numRow == m_dim-1 || numCol == 1 || numCol == m_dim-1)
 		return false;
 	
 	int compteur;
@@ -70,20 +69,20 @@ bool Grid::verif(int numRow, int numCol) const
 
 void Grid::update()
 {
-	bool newArray[22][22]{};
+	bool newArray[m_dim][m_dim]{};
 	
-	for(int i = 0; i < 22; i++)
+	for(int i = 0; i < m_dim; i++)
 	{
-		for(int j = 0; j < 22; j++)
+		for(int j = 0; j < m_dim; j++)
 		{
 			if(verif(i, j))
 				newArray[i][j] = verif(i, j);
 		}
 	}
 	
-	for(int i = 0; i < 22; i++)
+	for(int i = 0; i < m_dim; i++)
 	{
-		for(int j = 0; j < 22; j++)
+		for(int j = 0; j < m_dim; j++)
 		{
 			if(newArray[i][j] != m_table[i][j])
 				modif(i,j);
